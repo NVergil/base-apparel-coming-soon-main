@@ -51,7 +51,7 @@
           </div>
           <p
             class="email-validation"
-            style="text-align: left; margin-left: 5rem"
+            style="text-align: left; margin-left: 5rem; min-height: 2rem;"
           ></p>
         </div>
       </div>
@@ -91,7 +91,6 @@
             emailValidation.textContent = "";
             callAction.classList.remove("outline-error");
             iconError.classList.remove("error");
-            emailInput.value = "";
             emailInput.focus();
           }, 1200);
         }
