@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Base Apparel coming soon page</title>
+
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <section class="container">
+      <div class="content">
+        <div class="content-container">
+          <div class="logo-brand">
+            <img src="./images/logo.svg" alt="logo" />
+          </div>
+          <img
+            class="hero-mobile"
+            src="./images/hero-mobile.jpg"
+            alt="hero-mobile"
+          />
+          <h1>
+            <span>We're</span> <br />
+            coming <br />
+            soon
+          </h1>
+          <p>
+            Hello fellow shoppers! We're currently building our new fashion
+            store. Add your email below to stay up-to-date with announcements
+            and our launch deals.
+          </p>
+          <div class="call-action">
+            <input type="email" placeholder="Email Address" />
+            <img
+              class="icon-error"
+              src="./images/icon-error.svg"
+              alt="icon-error"
+            />
+            <button>
+              <img src="./images/icon-arrow.svg" />
+            </button>
+          </div>
+          <p
+            class="email-validation"
+            style="text-align: left; margin-left: 5rem"
+          ></p>
+        </div>
+      </div>
+      <img class="hero" src="./images/hero-desktop.jpg" alt="hero" />
+    </section>
+
+    <footer>
+      <p class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="https://github.com/NVergil" target="_blank" rel="noreferrer">VerDanT</a>.
+      </p>
+    </footer>
+    <script>
+      const d = document;
+      const emailInput = d.querySelector("input");
+      const inputButton = d.querySelector("button");
+      const emailValidation = d.querySelector(".email-validation");
+      const callAction = d.querySelector(".call-action");
+      const iconError = d.querySelector(".icon-error");
+
+      let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+      inputButton.addEventListener("click", () => {
+        if (emailInput.value.match(mailformat)) {
+          callAction.classList.add("outline-success");
+          setTimeout(() => {
+            callAction.classList.remove("outline-success");
+          }, 1200);
+          emailInput.value = "";
+        } else {
+          emailValidation.textContent = "Please provide a valid email";
+          callAction.classList.add("outline-error");
+          iconError.classList.add("error");
+          setTimeout(() => {
+            emailValidation.textContent = "";
+            callAction.classList.remove("outline-error");
+            iconError.classList.remove("error");
+            emailInput.value = "";
+            emailInput.focus();
+          }, 1200);
+        }
+      });
+    </script>
+  </body>
+</html>
